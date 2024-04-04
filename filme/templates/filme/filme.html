@@ -1,0 +1,28 @@
+{% extends 'global/base.html' %}
+{% load static %}
+{% block 'head' %}
+
+{% endblock 'head' %}
+
+{% block 'titulo' %}Filme{% endblock 'titulo' %}
+
+{% block 'conteudo' %}
+
+<main>
+    <h1>Cadastro de Filme</h1>
+    <form action="" method="post">
+        <label class="label_box_txt" for="">Titulo: </label>
+        <input class="box_txt" type="text" placeholder="Titanic" name="" id="">
+        <label class="label_box_txt" for="">Classificação </label>
+        <input class="box_txt" type="number" min="0" max="18" placeholder="18" name="" id="">
+        <label class="label_box_txt" for="">Lançamento </label>
+        <input class="box_txt" type="date" name="" id="">
+        <label class="label_box_txt" for="">Categoria </label>
+        <input class="box_txt" type="text" placeholder="Suspense" name="" id="">
+        <button class="btn-cadastrar" type="submit">Cadastrar</button>
+
+    </form>
+    
+</main>
+
+{% endblock 'conteudo' %}

@@ -1,0 +1,28 @@
+{% extends 'global/base.html' %}
+{% load static %}
+{% block 'head' %}
+   
+{% endblock 'head' %}
+
+{% block 'titulo' %}Filme{% endblock 'titulo' %}
+
+{% block 'conteudo' %}
+
+<main>
+    <h1>Cadastro de Usuário</h1>
+    <form class="forms" action="" method="post">
+        <label class="label_box_txt" for="">Nome: </label>
+        <input class="box_txt" type="text" placeholder="Rodriguinho da Silva" name="" id="">
+        <label class="label_box_txt" for="">Data de Nascimento: </label>
+        <input class="box_txt" type="date" name="" id="">
+        <label class="label_box_txt" for="">Gênero: </label>
+       <select class="box_txt" id="">
+            <option value="Masculino">Masculino</option>
+            <option value="Feminino">Feminino</option>
+       </select>
+        <button class="btn-cadastrar" type="submit">Cadastrar</button>
+    </form>
+   
+</main>
+  
+{% endblock 'conteudo' %}
