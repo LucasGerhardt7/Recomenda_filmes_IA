@@ -26,7 +26,11 @@
                 <label class="" for="idFilme{{ filme.pk }}">{{ filme.titulo }}</label>
             </div>
         {% endfor %}
-        
+        <label class="label_box_txt" for="">Ano min</label>
+        <input class="box_txt" type="number" name="ano_min" id="ano_min">
+
+        <label class="label_box_txt" for="">Ano max</label>
+        <input class="box_txt" type="number" name="ano_max" id="ano_max">
         <input type="submit" value="Salvar">
     </form>
 </div>

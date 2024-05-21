@@ -20,9 +20,10 @@ def home(request):
     filmesRecomendados = set()
     filmesUsuario_ids = models.FilmeRecomedado.objects.filter(idUsuario=1).values_list('idFilme', flat=True)
     filmesUsuario = models.Filme.objects.filter(pk__in=filmesUsuario_ids)
+    usuario = models.Usuario.objects.get(pk=1)
     
     for filme in filmesUsuario:
-        lista_filmes = recomendar_filmes(filme, 1990, 2000)
+        lista_filmes = recomendar_filmes(filme, usuario.anoMin, usuario.anoMax)
         for fi in lista_filmes:
             filmesRecomendados.add(fi)
 
@@ -33,7 +34,10 @@ def home(request):
 def recomendacao(request):
     if request.method=='POST':
         filmes = request.POST.getlist('idFilme')
-
+        ano_min = request.POST['ano_min']
+        ano_max = request.POST['ano_max']
+        models.Usuario.objects.filter(pk=1).update(anoMin=ano_min, anoMax=ano_max)
+        
         models.FilmeRecomedado.objects.filter(idUsuario=1).exclude(idFilme__in=filmes).delete()
         
         for filme in filmes:
@@ -59,12 +63,19 @@ def filme(request):
         classificacao = request.POST['filme_classificacao']
         lancamento = request.POST['filme_lancamento']
         categoria = request.POST['filme_categoria']
+        avaliacao = request.POST['avaliacao']
+        descricao = request.POST['descricao']
+        foto = request.FILES['foto']  
+        
         id_categoria=models.Categoria.objects.get(pk=categoria)
         filme = models.Filme(
             titulo=titulo,
             classificacao=classificacao,
             lancamento=lancamento,
-            categoria=id_categoria
+            categoria=id_categoria,
+            avaliacao=avaliacao,
+            descricao=descricao,
+            foto=foto,
             ).save()
 
     categorias=models.Categoria.objects.all()

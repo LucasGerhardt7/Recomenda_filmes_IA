@@ -8,7 +8,8 @@ class Usuario(models.Model):
     nome = models.CharField(max_length=150, blank=True, null=True)
     data_nascimento = models.DateField()
     genero = models.CharField(max_length=150, blank=True, null=True)
-    
+    anoMin = models.IntegerField(blank=True, null=True)
+    anoMax = models.IntegerField(blank=True, null=True)
 
 class Categoria(models.Model):
     idCategoria = models.AutoField(primary_key=True)
@@ -17,9 +18,11 @@ class Categoria(models.Model):
 class Filme(models.Model):
     idFilme = models.AutoField(primary_key=True)
     titulo = models.CharField(max_length=200, blank=False, null=False)
+    descricao = models.CharField(max_length=200, null=True, blank=True)
     classificacao = models.IntegerField()
     lancamento = models.DateField()
     avaliacao = models.FloatField(blank=True, null=True)
+    foto = models.ImageField(upload_to='imagens/', null=True, blank=True)
     categoria = models.ForeignKey(Categoria, on_delete=models.SET_NULL, blank=True, null=True)
 
 

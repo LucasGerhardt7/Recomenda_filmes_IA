@@ -39,11 +39,11 @@
 
                 {% for filme in filmesRecomendados %}
                     <div class="recomendacao">
-                        <img src="capa_filme/ligaDaJustica.jfif" alt="">
+                        <img src="{{ filme.foto.url }}" alt="">
                         <span>
                             <h2>{{ filme.titulo }}</h2>
                             <p>
-                                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Delectus quis esse quam! Adipisci sint doloremque ipsa provident iusto, velit quo nam, voluptatum mollitia recusandae tempora libero maiores esse reiciendis porro?
+                                {{ filme.descricao }}
                             </p>
                         </span>
                     

@@ -10,16 +10,27 @@
 
 <main>
     <h1>Cadastro de Filme</h1>
-    <form action="{% url 'filme:filme' %}" method="post">
+    <form action="{% url 'filme:filme' %}" method="post" enctype="multipart/form-data">
         {% csrf_token %}
         <label class="label_box_txt" for="">Titulo: </label>
         <input class="box_txt" type="text" placeholder="Titanic" name="filme_titulo" id="filme_titulo">
+
         <label class="label_box_txt" for="">Classificação </label>
         <input class="box_txt" type="number" min="0" max="18" placeholder="18" name="filme_classificacao" id="filme_classificacao">
         <label class="label_box_txt" for="">Lançamento </label>
         <input class="box_txt" type="date" name="filme_lancamento" id="filme_lancamento">
-        <label class="label_box_txt" for="">Categoria </label>
+        <label class="label_box_txt" for="">Avaliação </label>
+        <input class="box_txt" type="number" name="avaliacao" id="avaliacao">
+        <label for="descricao">Descrição</label>
+        <br/>
+        <textarea id="descricao" name="descricao" rows="5"></textarea>
+        <br/>
 
+        <label class="label_box_txt" for="foto">Foto</label>
+        <input  type="file" name="foto" id="foto" required>
+
+        <br/>
+        <label class="label_box_txt" for="">Categoria </label>
         <select name="filme_categoria" id="filme_categoria">
             {% for categoria in categorias %}
             <option value="{{categoria.pk}}">{{categoria.nomeCategoria}}</option>
