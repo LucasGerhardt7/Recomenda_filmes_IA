@@ -10,9 +10,10 @@
 
 <main>
     <h1>Cadastro de Categoria</h1>
-    <form action="" method="post">
+    <form action="{% url 'filme:categoria' %}" method="post">
+        {% csrf_token %}
         <label class="label_box_txt" for="">Nome: </label>
-        <input class="box_txt" type="text" placeholder="Suspense" name="" id="">
+        <input class="box_txt" type="text" placeholder="Suspense" name="categoria" id="categoria">
         <button class="btn-cadastrar" type="submit">Cadastrar</button>
     </form>
     

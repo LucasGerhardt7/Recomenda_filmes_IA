@@ -1,0 +1,34 @@
+{% extends 'global/base.html' %}
+{% load static %}
+{% block 'head' %}
+
+{% endblock 'head' %}
+
+{% block 'titulo' %}Filme{% endblock 'titulo' %}
+
+{% block 'conteudo' %}
+
+<div class="modal-content">
+    <p>Selecione seus filmes favoritos!</p>
+    <form action="" method="POST">
+    
+        {% csrf_token %}
+        {% for filme in filmesRecomendados %}
+        <div class="checkboxInput">
+            <input type="checkbox" value="{{filme.idFilme.pk}}" name="idFilme" id="idFilme{{ filme.idFilme.pk }}" checked>
+            <label class="" for="idFilme{{ filme.idFilme.pk }}">{{ filme.idFilme.titulo }}</label>
+        </div>
+        {% endfor %}
+
+        {% for filme in filmes %}
+            <div class="checkboxInput">
+                <input type="checkbox" value="{{filme.pk}}" name="idFilme" id="idFilme{{ filme.pk }}" >
+                <label class="" for="idFilme{{ filme.pk }}">{{ filme.titulo }}</label>
+            </div>
+        {% endfor %}
+        
+        <input type="submit" value="Salvar">
+    </form>
+</div>
+
+{% endblock 'conteudo' %}

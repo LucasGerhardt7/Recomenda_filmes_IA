@@ -1,0 +1,81 @@
+{% extends 'global/base.html' %}
+{% load static %}
+{% block 'head' %}
+
+{% endblock 'head' %}
+
+{% block 'titulo' %}Filme{% endblock 'titulo' %}
+
+{% block 'conteudo' %}
+<main>
+    <!-- CARROSSEL -->
+        <div class="carousel">
+          <!--   <input type="radio" name="slide" id="slide1" checked>
+            <input type="radio" name="slide" id="slide2">
+            <input type="radio" name="slide" id="slide3"> -->
+        
+            <div class="slides">
+                <div class="slide">
+                    <img src="{% static 'filme/img/Banner5.jpeg' %}" alt="Slide 1">
+                </div>
+                <div class="slide">
+                    <img src="{% static 'filme/img/Banner6.jpeg' %}" alt="Slide 2">
+                </div>
+                <div class="slide">
+                    <img src="{% static 'filme/img/Banner7.webp' %}" alt="Slide 3">
+                </div>
+            </div>
+        
+            <div class="navigation">
+                <label for="slide1"></label>
+                <label for="slide2"></label>
+                <label for="slide3"></label>
+            </div>
+        </div>
+
+        <h1>Recomendações</h1>
+        <form method="get" action="">
+            <div>
+
+                {% for filme in filmesRecomendados %}
+                    <div class="recomendacao">
+                        <img src="capa_filme/ligaDaJustica.jfif" alt="">
+                        <span>
+                            <h2>{{ filme.titulo }}</h2>
+                            <p>
+                                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Delectus quis esse quam! Adipisci sint doloremque ipsa provident iusto, velit quo nam, voluptatum mollitia recusandae tempora libero maiores esse reiciendis porro?
+                            </p>
+                        </span>
+                    
+                    </div>
+                
+                {% endfor %}
+            
+        
+            </div>
+        </form>
+     
+
+
+
+        <script>
+
+            //CARROSSEL
+                const slides = document.querySelectorAll('.slide');
+                let currentSlide = 0;
+
+                function showSlide(index) {
+                    slides.forEach((slide, i) => {
+                        slide.style.display = i === index ? 'block' : 'none';
+                    });
+                }
+
+                function nextSlide() {
+                    currentSlide = (currentSlide + 1) % slides.length;
+                    showSlide(currentSlide);
+                }
+                setInterval(nextSlide, 5000); // Altera o slide a cada 5 segundos
+
+        </script>
+   </main>
+{% endblock 'conteudo' %}

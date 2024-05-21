@@ -10,15 +10,22 @@
 
 <main>
     <h1>Cadastro de Filme</h1>
-    <form action="" method="post">
+    <form action="{% url 'filme:filme' %}" method="post">
+        {% csrf_token %}
         <label class="label_box_txt" for="">Titulo: </label>
-        <input class="box_txt" type="text" placeholder="Titanic" name="" id="">
+        <input class="box_txt" type="text" placeholder="Titanic" name="filme_titulo" id="filme_titulo">
         <label class="label_box_txt" for="">Classificação </label>
-        <input class="box_txt" type="number" min="0" max="18" placeholder="18" name="" id="">
+        <input class="box_txt" type="number" min="0" max="18" placeholder="18" name="filme_classificacao" id="filme_classificacao">
         <label class="label_box_txt" for="">Lançamento </label>
-        <input class="box_txt" type="date" name="" id="">
+        <input class="box_txt" type="date" name="filme_lancamento" id="filme_lancamento">
         <label class="label_box_txt" for="">Categoria </label>
-        <input class="box_txt" type="text" placeholder="Suspense" name="" id="">
+
+        <select name="filme_categoria" id="filme_categoria">
+            {% for categoria in categorias %}
+            <option value="{{categoria.pk}}">{{categoria.nomeCategoria}}</option>
+            {% endfor %}
+        </select>
+
         <button class="btn-cadastrar" type="submit">Cadastrar</button>
 
     </form>

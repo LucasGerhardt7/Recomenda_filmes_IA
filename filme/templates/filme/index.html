@@ -10,13 +10,14 @@
 
 <main>
     <h1>Cadastro de Usuário</h1>
-    <form class="forms" action="" method="post">
+    <form class="forms" action="{% url 'filme:index' %}" method="post">
+        {% csrf_token %}
         <label class="label_box_txt" for="">Nome: </label>
-        <input class="box_txt" type="text" placeholder="Rodriguinho da Silva" name="" id="">
+        <input class="box_txt" type="text" placeholder="Rodriguinho da Silva" name="user_nome" id="user_nome">
         <label class="label_box_txt" for="">Data de Nascimento: </label>
-        <input class="box_txt" type="date" name="" id="">
+        <input class="box_txt" type="date" name="user_data" id="user_data">
         <label class="label_box_txt" for="">Gênero: </label>
-       <select class="box_txt" id="">
+       <select class="box_txt" id="user_genero" name="user_genero">
             <option value="Masculino">Masculino</option>
             <option value="Feminino">Feminino</option>
        </select>
