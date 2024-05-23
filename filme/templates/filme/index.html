@@ -13,11 +13,11 @@
     <form class="forms" action="{% url 'filme:index' %}" method="post">
         {% csrf_token %}
         <label class="label_box_txt" for="">Nome: </label>
-        <input class="box_txt" type="text" placeholder="Rodriguinho da Silva" name="user_nome" id="user_nome">
+        <input class="box_txt" type="text" placeholder="Rodriguinho da Silva" name="user_nome" id="user_nome" required>
         <label class="label_box_txt" for="">Data de Nascimento: </label>
-        <input class="box_txt" type="date" name="user_data" id="user_data">
+        <input class="box_txt" type="date" name="user_data" id="user_data" required>
         <label class="label_box_txt" for="">Gênero: </label>
-       <select class="box_txt" id="user_genero" name="user_genero">
+       <select class="box_txt" id="user_genero" name="user_genero" required>
             <option value="Masculino">Masculino</option>
             <option value="Feminino">Feminino</option>
        </select>

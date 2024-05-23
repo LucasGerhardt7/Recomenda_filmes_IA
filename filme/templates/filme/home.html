@@ -32,7 +32,9 @@
                 <label for="slide3"></label>
             </div>
         </div>
+    <!-- FIM CARROSSEL -->
 
+    
         <h1>Recomendações</h1>
         <form method="get" action="">
             <div>
@@ -42,9 +44,22 @@
                         <img src="{{ filme.foto.url }}" alt="">
                         <span>
                             <h2>{{ filme.titulo }}</h2>
+                        
+                            <p style="font-style:italic;font-weight: lighter;">Lançamento: {{filme.lancamento}}</p>
+
                             <p>
                                 {{ filme.descricao }}
                             </p>
+                            <p>Categorias:</p>
+                            
+                                {% for filme.categoria.all in categoria %}
+                                    <p>{{ categoria }}</p>
+                                {% endfor %}
+                            
+                            <p>Classificacao: {{filme.classificacao}} Anos </p>
+                            <p>Avaliação: {{filme.avaliacao}} </p>
+
+
                         </span>
                     
                     </div>

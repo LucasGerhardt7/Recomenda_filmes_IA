@@ -13,17 +13,17 @@
     <form action="{% url 'filme:filme' %}" method="post" enctype="multipart/form-data">
         {% csrf_token %}
         <label class="label_box_txt" for="">Titulo: </label>
-        <input class="box_txt" type="text" placeholder="Titanic" name="filme_titulo" id="filme_titulo">
+        <input class="box_txt" type="text" placeholder="Titanic" name="filme_titulo" id="filme_titulo" required>
 
         <label class="label_box_txt" for="">Classificação </label>
-        <input class="box_txt" type="number" min="0" max="18" placeholder="18" name="filme_classificacao" id="filme_classificacao">
+        <input class="box_txt" type="number" min="0" max="18" placeholder="18" name="filme_classificacao" id="filme_classificacao" required>
         <label class="label_box_txt" for="">Lançamento </label>
-        <input class="box_txt" type="date" name="filme_lancamento" id="filme_lancamento">
+        <input class="box_txt" type="date" name="filme_lancamento" id="filme_lancamento" required>
         <label class="label_box_txt" for="">Avaliação </label>
-        <input class="box_txt" type="number" name="avaliacao" id="avaliacao">
+        <input class="box_txt" type="number" step="0.1" min="0" max="5" name="avaliacao" id="avaliacao" required>
         <label for="descricao">Descrição</label>
         <br/>
-        <textarea id="descricao" name="descricao" rows="5"></textarea>
+        <textarea id="descricao" name="descricao" rows="5" required></textarea>
         <br/>
 
         <label class="label_box_txt" for="foto">Foto</label>
